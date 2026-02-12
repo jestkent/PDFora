@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online PDF compression tool - Reduce PDF file size while maintaining quality">
+  <title>PDF Compressor - Reduce PDF File Size Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="4" width="20" height="24" rx="2" stroke="url(#gradient)" stroke-width="2" />
+          <path d="M10 10H22M10 14H22M10 18H18" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="gradient" x1="6" y1="4" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8B5CF6" />
+              <stop offset="1" stop-color="#3B82F6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <h1>PDF Compressor</h1>
+      </div>
+      <p class="tagline">Reduce file size, preserve quality</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Upload Section -->
+      <section id="upload-section" class="card upload-card">
+        <div class="upload-zone" id="upload-zone">
+          <div class="upload-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 16V40M32 16L24 24M32 16L40 24" stroke="url(#iconGradient)" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M48 40V48C48 49.1046 47.1046 50 46 50H18C16.8954 50 16 49.1046 16 48V40"
+                stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="iconGradient" x1="16" y1="16" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8B5CF6" />
+                  <stop offset="1" stop-color="#3B82F6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Drop your PDFs here</h2>
+          <p>or click to browse (up to 3 files)</p>
+          <input type="file" id="file-input" accept=".pdf,application/pdf" multiple hidden>
+          <button class="btn btn-secondary" id="browse-btn">Choose File</button>
+          <p class="file-limit">Maximum file size: 250 MB</p>
+        </div>
+      </section>
+
+      <!-- File Info Section -->
+      <section id="file-info-section" class="card file-info-card hidden">
+        <div class="file-info">
+          <div class="file-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="6" width="28" height="36" rx="2" fill="url(#fileGradient)" />
+              <path d="M16 14H32M16 20H32M16 26H26" stroke="white" stroke-width="2" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="fileGradient" x1="10" y1="6" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8B5CF6" />
+                  <stop offset="1" stop-color="#3B82F6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="file-details">
+            <h3 id="file-name">document.pdf</h3>
+            <p id="file-size">0 MB</p>
+          </div>
+          <button class="btn-icon" id="remove-file-btn" title="Remove file">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+        <button class="btn btn-primary" id="compress-btn">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 14V6M10 14L7 11M10 14L13 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M16 10V14C16 15.1046 15.1046 16 14 16H6C4.89543 16 4 15.1046 4 14V10" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Compress PDF
+        </button>
+      </section>
+
+      <!-- Processing Section -->
+      <section id="processing-section" class="card processing-card hidden">
+        <div class="progress-container">
+          <div class="progress-icon">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="35" stroke="url(#progressGradient)" stroke-width="4" opacity="0.2" />
+              <circle id="progress-circle" cx="40" cy="40" r="35" stroke="url(#progressGradient)" stroke-width="4"
+                stroke-dasharray="220" stroke-dashoffset="220" stroke-linecap="round" transform="rotate(-90 40 40)"
+                class="progress-ring" />
+              <text x="40" y="45" text-anchor="middle" font-size="20" font-weight="bold" fill="url(#progressGradient)"
+                id="progress-percent">0%</text>
+              <defs>
+                <linearGradient id="progressGradient" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8B5CF6" />
+                  <stop offset="1" stop-color="#3B82F6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 id="processing-title">Compressing your PDFs...</h3>
+          <p id="processing-status">Processing file <span id="current-file">1</span> of <span id="total-files">1</span>
+          </p>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Result Section -->
+      <section id="result-section" class="card result-card hidden">
+        <div class="result-header">
+          <div class="success-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#successGradient)" />
+              <path d="M16 24L21 29L32 18" stroke="white" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="successGradient" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#10B981" />
+                  <stop offset="1" stop-color="#059669" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3>Compression Complete!</h3>
+        </div>
+
+        <div class="size-comparison">
+          <div class="size-item">
+            <span class="size-label">Original</span>
+            <span class="size-value" id="original-size">0 MB</span>
+          </div>
+          <div class="arrow">→</div>
+          <div class="size-item">
+            <span class="size-label">Compressed</span>
+            <span class="size-value compressed" id="compressed-size">0 MB</span>
+          </div>
+        </div>
+
+        <div class="savings">
+          <p>You saved <strong id="saved-size">0 MB</strong> (<span id="compression-ratio">0%</span>)</p>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="download-btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 3V13M10 13L6 9M10 13L14 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M17 13V15C17 16.1046 16.1046 17 15 17H5C3.89543 17 3 16.1046 3 15V13" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Download Compressed PDF
+          </button>
+          <button class="btn btn-secondary" id="compress-another-btn">Compress Another</button>
+        </div>
+      </section>
+
+      <!-- Error Section -->
+      <section id="error-section" class="card error-card hidden">
+        <div class="error-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" stroke="#EF4444" stroke-width="3" />
+            <path d="M24 16V26M24 30V32" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3>Oops! Something went wrong</h3>
+        <p id="error-message">Please try again</p>
+        <button class="btn btn-secondary" id="try-again-btn">Try Again</button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Your files are automatically deleted after processing. We respect your privacy.</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
