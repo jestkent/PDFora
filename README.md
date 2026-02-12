@@ -41,7 +41,7 @@ I needed to compress large PDF files (200+ MB) but popular online tools like iLo
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/pdf-compressor.git
+   git clone https://github.com/jestkent/pdf-compressor.git
    cd pdf-compressor
    ```
 
