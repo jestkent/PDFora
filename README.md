@@ -41,8 +41,8 @@ I needed to compress large PDF files (200+ MB) but popular online tools like iLo
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/jestkent/pdf-compressor.git
-   cd pdf-compressor
+   git clone https://github.com/jestkent/PDFora.git
+   cd PDFora
    ```
 
 2. **Install dependencies**
